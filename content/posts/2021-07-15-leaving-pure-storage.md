@@ -1,6 +1,8 @@
 ---
-layout: post
 title: Leaving Pure Storage
+date: 2021-07-15
+aliases:
+  - /blog/posts/2021-07-15-leaving-pure-storage/
 ---
 
 Last week was my last week at [Pure Storage](https://purestorage.com).

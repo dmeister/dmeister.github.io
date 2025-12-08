@@ -1,6 +1,8 @@
 ---
-layout: post
 title: Feedback on C++ solutions on interview training site AlgoExpert
+date: 2021-07-29
+aliases:
+  - /blog/posts/2021-07-29-cpp-in-coding-interviews/
 ---
 
 Interviews for software engineer job position often involve coding interviews testing the basic coding and classical data structure and algorithm knowledge and understanding.

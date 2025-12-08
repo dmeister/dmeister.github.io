@@ -1,6 +1,9 @@
 ---
-layout: page
-title: About
+title: "About"
+url: "/about/"
+aliases:
+  - /blog/about/
+showToc: false
 ---
 
 - Storage Software Engineer, Storage Researcher.

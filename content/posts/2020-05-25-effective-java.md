@@ -6,12 +6,12 @@ aliases:
 ---
 
 One of my favorite books is ["Effective Java" by Joshua Bloch](https://www.oreilly.com/library/view/effective-java-3rd/9780134686097/).
-I am a Java developer by training who just happen to have landed in infrastructure and systems programming.
+I am a Java developer by training who just happened to have landed in infrastructure and systems programming.
 I am mostly using Modern C++ at this point. It is still my favorite book. It contains 90 guidelines on how to use the Java language well.
 
 My theory is that C++ developers should read effective Java. Thus, the clickbait title. It is the missing book for C++.
 
-A couple of years ago I was leading a team of college new grads. In college, you learn two things: Computer Science and Coding. However, they are not really learning software engineering: How to write software which can stand the test of time. Neither is that a reasonable expectation from a college. CS is the foundation for all of what we write and the cleanest, most maintainable code is useless if the code is wrong or the algorithm is way off.  Back then, I was preparing a reading list for these new C++ engineers. The obvious books were on the reading list like [Effective Modern C++](http://shop.oreilly.com/product/0636920033707.do), but also Effective Java.
+A couple of years ago I was leading a team of college new grads. In college, you learn two things: Computer Science and Coding. However, students are not really learning software engineering: How to write software which can stand the test of time. Neither is that a reasonable expectation from a college. CS is the foundation for all of what we write and the cleanest, most maintainable code is useless if the code is wrong or the algorithm is way off.  Back then, I was preparing a reading list for these new C++ engineers. The obvious books were on the reading list like [Effective Modern C++](http://shop.oreilly.com/product/0636920033707.do), but also Effective Java.
 
 I will make the case in two steps:
 
@@ -19,7 +19,7 @@ My reasoning is that most tips in Effective Java (EJ), with some imagination, ap
 
 But I go further: Many tips apply to C++ and there is no other comparable guideline document specialized on C++. There are three sources of guidelines I will consider: Effective Modern C++ (EMC), [Effective C++](https://www.amazon.com/gp/product/0321334876?ie=UTF8&tag=aristeia.com-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0321334876) (EC) and the [C++ core guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines). Effective C++ and Effective Modern C++ are books quite comparable to Effective Java in approach and size.
 
-On the other hand, there are hundreds of Core Guidelines. I personally would wish sometimes that they reflect a bit more on the word “core”. My theory is that most C++ guidelines are so focused on the low-level details like xvalue references that some of the more important high-level discussions do not take place. The quality of the text of guidelines also differs very much. Some have good explanations and examples, why others are only the title and a TODO, e.g. the [CP.201](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rconc-signal).
+On the other hand, there are hundreds of Core Guidelines. I personally would wish sometimes that they reflect a bit more on the word "core". My theory is that most C++ guidelines are so focused on the low-level details like xvalue references that some of the more important high-level discussions do not take place. The quality of the text of guidelines also differs very much. Some have good explanations and examples, while others are only the title and a TODO, e.g. the [CP.201](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rconc-signal).
 
 # Chapter 2: Creating and Destroying Objects
 
@@ -40,11 +40,11 @@ auto array_names = std::make_unique<vector<string>>();
 
 ### Item 1: Consider static factory methods instead of constructors
 
-*[5/5]* Factory methods appears to be quite uncommon in C++, but the argumentation applies 100%. With return value optimization, there isn’t even much extra overhead associated with it. Effective Modern C++ doesn't mention factories. Effective C++ mentions factories but doesn't appear to discuss when and why to use them. A subset of what is covered in Item 1 is also covered by [C.50](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rc-factory). While I do not consider Abseils TotW in this article, it is interesting that [TotW 42](https://abseil.io/tips/42) is a match.
+*[5/5]* Factory methods appear to be quite uncommon in C++, but the argumentation applies 100%. With return value optimization, there isn’t even much extra overhead associated with it. Effective Modern C++ doesn't mention factories. Effective C++ mentions factories but doesn't appear to discuss when and why to use them. A subset of what is covered in Item 1 is also covered by [C.50](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rc-factory). While I do not consider Abseils TotW in this article, it is interesting that [TotW 42](https://abseil.io/tips/42) is a match.
 
 ### Item 2: Consider a builder when faced with many constructors
 
-*[5/5]* In my view, the argument applies 100% for C++. A constructor with many elements is as bad in C++ as it is in Java. Neither the EC or EMC books nor the core guidelines do not talk about the builder pattern.
+*[5/5]* In my view, the argument applies 100% for C++. A constructor with many elements is as bad in C++ as it is in Java. Neither the EC or EMC books nor the core guidelines talk about the builder pattern.
 
 This [article](https://refactoring.guru/design-patterns/builder/cpp/example) gives the builder pattern 3 out of 4 stars for popularity in C++ and while the motivation is correct never ever write the code as given in that article.
 
@@ -68,11 +68,11 @@ There is a reading in which there is more similarity. Unnecessary objects are di
 
 ### Item 7: Eliminate obsolete object references
 
-*[2/5]* In C++ we think much more about object lifetimes, so many this is obvious to a C++ developer, but just a couple of weeks ago I had to read the code of a hand-written container class (where `std::vector` should just have been used) which didn’t call the destructor on clear().
+*[2/5]* In C++ we think much more about object lifetimes, so maybe this is obvious to a C++ developer, but just a couple of weeks ago I had to read the code of a hand-written container class (where `std::vector` should just have been used) which didn't call the destructor on clear().
 
 ### Item 8: Avoid finalizers and cleaners
 
-*[1/5]* I would give -1 out of 5 if that would be possible. That is exactly what you do in C++ thanks to the clear object lifetime guarantees. Object lifetime is a topic where Java really annoys me. I think core guideline [C.30](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rc-dtor) is the closed match in the core guideline which proves the opposite.
+*[1/5]* I would give -1 out of 5 if that would be possible. That is exactly what you do in C++ thanks to the clear object lifetime guarantees. Object lifetime is a topic where Java really annoys me. I think core guideline [C.30](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rc-dtor) is the closest match in the core guideline which proves the opposite.
 
 4 out of 8 tips for Java mostly apply to C++.
 
@@ -88,8 +88,7 @@ All Java objects inherit from `java.lang.Object`, which has functions like
 
 ### Item 10: Obey the general contract when overriding equals
 
-*[4/5]* Rephrased for C++ as "Obey the general contract when providing an `==` or `< operator`", this still applies. Even the contracts are the same. [C.160](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Ro-conventional) (“Define operators primarily to mimic conventional usage”) is similar, but much less explicit about the requirements. What the contract actually is is not mentioned at all, while Item 10 goes into quite a detail on how to write a good equals method. I actually see a number
-of == implementations, which are not really implementing the contract.
+*[4/5]* Rephrased for C++ as "Obey the general contract when providing an `==` or `<` operator", this still applies. Even the contracts are the same. [C.160](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Ro-conventional) ("Define operators primarily to mimic conventional usage") is similar, but much less explicit about the requirements. What the contract actually is is not mentioned at all, while Item 10 goes into quite a bit of detail on how to write a good equals method. I actually see a number of == implementations which are not really implementing the contract.
 
 ### Item 11: Always override hashcode when you override equals
 
@@ -122,7 +121,7 @@ interface, but it has abstract classes.
 
 ### Item 15: Minimize the accessibility of classes and members.
 
-*[4/5]* Both are true but in different ways. For members, the rules are the same with private and protected. However, C++ doesn’t have private classes as a language construct. However, if a class is an implementation detail consider not putting it into a header file. Core guideline [C.9](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rc-private) is the closed match.
+*[4/5]* Both are true but in different ways. For members, the rules are the same with private and protected. However, C++ doesn't have private classes as a language construct. However, if a class is an implementation detail, consider not putting it into a header file. Core guideline [C.9](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rc-private) is the closest match.
 
 ### Item 16: In public classes, use accessor methods, not public fields
 
@@ -150,16 +149,15 @@ C++ has a different approach. In C++ we use value semantics and we have mutable 
 
 ### Item 18: Favor composition over inheritance
 
-*[5/5]* yes, yes, yes. Same arguments. I think this is one of the most important items for Java and C++ in this collection of tips and the cpp core guidelines do not mention it. The closed you get is [C.129](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rh-kind) "When designing a class hierarchy, distinguish between implementation inheritance and interface inheritance
-", but it is not the same. I feel something is missing here in the guidelines for C++. Effective C++'s Item 32 "Make sure public inheritance models 'is-a'" comes very close.
+*[5/5]* Yes, yes, yes. Same arguments. I think this is one of the most important items for Java and C++ in this collection of tips and the cpp core guidelines do not mention it. The closest you get is [C.129](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rh-kind) "When designing a class hierarchy, distinguish between implementation inheritance and interface inheritance", but it is not the same. I feel something is missing here in the guidelines for C++. Effective C++'s Item 32 "Make sure public inheritance models 'is-a'" comes very close.
 
 ### Item 19: Design and document for inheritance or else prohibit it
 
-*[4/5]* The arguments still applies to the letter. However, we have to do more work in C++ to prohibit it. We have to mark each virtual function final. You can still subclass, but you can no longer do any damage to it. [C.139](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rh-final) argues explicitly against this item. I believe in the argument of Effective Java more than in the argument of C.139.
+*[4/5]* The argument still applies to the letter. However, we have to do more work in C++ to prohibit it. We have to mark each virtual function final. You can still subclass, but you can no longer do any damage to it. [C.139](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rh-final) argues explicitly against this item. I believe in the argument of Effective Java more than in the argument of C.139.
 
 ### Item 20: Prefer interfaces to abstract classes
 
-*[2/5]* Clearly, this means something very concrete in Java, while the syntactic difference doesn't exist in C++. [C.129](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rh-kind), which I already mentioned for Item 18 defines the term interface for C++ and captures essentially this item. Neither the EMC book or nor the EC book capture.
+*[2/5]* Clearly, this means something very concrete in Java, while the syntactic difference doesn't exist in C++. [C.129](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rh-kind), which I already mentioned for Item 18, defines the term interface for C++ and captures essentially this item. Neither the EMC book nor the EC book captures it.
 
 ### Item 21: Design interfaces for posterity
 
@@ -172,7 +170,7 @@ C++ feels it is unable to fix unordered_map or the regular expression engine due
 
 ### Item 23: Prefer class hierarchies to tagged classes
 
-[2/5] Tagged classes are also bad design in C++. However, class hierarchies mean dynamic dispatching and usually mean dynamic allocation. Both things we are wary about. With `std::variant` we have kind of an alternative tool, while I would argue should be preferred to tagged classes in C++. I can not find a core guideline talking about this topic. Given the design space involving `std::variant` and class hierarchies, a guideline is overdue.
+[2/5] Tagged classes are also bad design in C++. However, class hierarchies mean dynamic dispatching and usually mean dynamic allocation. Both things we are wary about. With `std::variant` we have kind of an alternative tool, which I would argue should be preferred to tagged classes in C++. I cannot find a core guideline talking about this topic. Given the design space involving `std::variant` and class hierarchies, a guideline is overdue.
 
 ### Item 24: Prefer static member classes over nonstatic
 
@@ -202,7 +200,7 @@ I guess `std::any` is effectively like raw types. We will if that addition to C+
 
 *[5/5]* This again needs a little rephrasing: "Prefer collection classes to raw arrays". List in Java just means an ordered collection of objects and is not equivalent to `std::list` (which would be `java.lang.LinkedList`). Actually, there is no equivalent to the concept of a collection in C++.
 
-This guideline holds for C++. Surprisingly, the core guidelines don’t mention this. The closed item is [ES.27](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Res-stack), but it is way less general.
+This guideline holds for C++. Surprisingly, the core guidelines don't mention this. The closest item is [ES.27](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Res-stack), but it is way less general.
 
 ### Item 29: Favor generic types
 
@@ -214,7 +212,7 @@ This guideline holds for C++. Surprisingly, the core guidelines don’t mention 
 
 ### Item 31: use bounded wildcards to increase API flexibility
 
-*[1/5]* Does not apply. Interesting concept. Maybe the same thing can be done with lot of [SFINAE](https://en.cppreference.com/w/cpp/language/sfinae).
+*[1/5]* Does not apply. Interesting concept. Maybe the same thing can be done with a lot of [SFINAE](https://en.cppreference.com/w/cpp/language/sfinae).
 
 ### Item 32: Combine generics and varargs judiciously
 
@@ -322,14 +320,14 @@ std::sort(begin(v), end(v), [](auto const & a, auto const & b) {
 [4/5] This item is about using the standard functional interfaces like `Predicate<T>` instead of having a different type. This doesn’t apply nowadays in C++ as we use a template typename or `std::function<bool(T)>`. However, in C++20 this will start to apply
 with concepts, e.g. ['std::predicate'](https://en.cppreference.com/w/cpp/concepts/predicate). I give it a 4 out of 5 because one shouldn't go in and re-invent standard concepts.
 
-### Item 45; use streams judiciously
+### Item 45: Use streams judiciously
 
 [4/5] While streams and ranges increase the readability and the level of abstraction. the tip warns that it is possible to overdo a good thing and sometimes a very long stream chain can become hard to read. As far as I can tell, the same is true
 for long ranges chains.
 
-### Item 46: Prefer side-effect free functions in streams
+### Item 46: Prefer side-effect-free functions in streams
 
-[5/5] Again no streams, so this doesn’t apply directly. But it applies to lambdas provided to standard algorithms and ranges. This is especially important with the parallel standard algorithms of C++17.
+[5/5] Again, no streams, so this doesn't apply directly. But it applies to lambdas provided to standard algorithms and ranges. This is especially important with the parallel standard algorithms of C++17.
 
 Do not write:
 
@@ -350,7 +348,7 @@ will feed into a ranged for loop (aka `begin()` and `end()` are available).
 
 ### Item 48: Use caution when making streams parallel
 
-[4/5] I will apply this tip to the parallel standard algorithms in C++17. I have used the parallel algorithms because they don't mix well with Pure's threading system, but from all I can tell, this applies.
+[4/5] I will apply this tip to the parallel standard algorithms in C++17. I have not used the parallel algorithms because they don't mix well with Pure's threading system, but from all I can tell, this applies.
 
 From all I can tell, there are no core guidelines about the parallel standard algorithms at all.
 
@@ -364,7 +362,7 @@ We have methods in C++, so a lot might apply.
 
 *[?/5]* There the C++ practice appears to differ very much. The C++ standard library mostly doesn’t do it and declares a violation undefined behaviour. Pure Storage partially lives by this item. We have various kinds of assertions in our code base. Some only in debug mode, some also in release mode.
 
-### Item 50: Make define copies when needed
+### Item 50: Make defensive copies when needed
 
 *[5/5]* This depends again on the reading. Value semantics are very much about defensive copies. When we return a container from an accessor method, we either return it by const reference or as a copy. This is a topic where C++ has much more elaborate tooling and guidelines than Java has. As in Java everything is a mutable reference by default, this tip is much more important in Java.
 
@@ -380,7 +378,7 @@ We have methods in C++, so a lot might apply.
 
 *[1/5]* Java varargs sound similar to C’s varargs system that C++ inherited, but it is actually very different. It looks syntactically a lot like variadic templates, but they are like initializer lists.
 
-The tip deals mostly how to enforce at least one parameter in the vararg list, which isn't possibly nicely with initializer list, but would be possible with variadic templates where the type is limited with [enable_if](https://en.cppreference.com/w/cpp/types/enable_if) or static asserts. However, one of that is nice.
+The tip deals mostly with how to enforce at least one parameter in the vararg list, which isn't possible nicely with initializer lists, but would be possible with variadic templates where the type is limited with [enable_if](https://en.cppreference.com/w/cpp/types/enable_if) or static asserts. However, none of that is nice.
 
 ### Item 54: return empty collection to arrays, not nulls
 
@@ -446,7 +444,7 @@ I cannot find a matching guideline in C++. However, [Abseil TotW/3](https://abse
 
 ### Item 66: use native methods judiciously
 
-*[1/5]* Does not apply to C++. Maybe I can find `extern "C"` functions are the C++ equivalent to native methods, but that would be a stretch.
+*[1/5]* Does not apply to C++. Maybe I could say `extern "C"` functions are the C++ equivalent to native methods, but that would be a stretch.
 
 ### Item 67: Optimize judiciously
 
@@ -454,12 +452,12 @@ I cannot find a matching guideline in C++. However, [Abseil TotW/3](https://abse
 
 ### Item 68: Adhere to generally accepted naming conventions
 
-*[1/5]* C++ have not generally accepted naming conventions which one could adhere, too.
-C++ developers can't even agree if `const` comes left or right of the decayed type. The right answer is right BTW. The nearest match is [NL.8](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rl-name), which recommends to at least have a consistent naming convention in house.
+*[1/5]* C++ does not have generally accepted naming conventions which one could adhere to.
+C++ developers can't even agree if `const` comes left or right of the decayed type. The right answer is right, BTW. The nearest match is [NL.8](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rl-name), which recommends at least having a consistent naming convention in-house.
 
 # Chapter 10: Exceptions
 
-The exception system in Java and C++ works quite differently. And I have to emit that I never in the last 20 years coded in a C++ codebase with used exceptions (not a joke), so my knowledge in this topic is a bit hazy.
+The exception system in Java and C++ works quite differently. And I have to admit that I never in the last 20 years coded in a C++ codebase that used exceptions (not a joke), so my knowledge on this topic is a bit hazy.
 
 ### Item 69: use exceptions only for exceptional conditions
 
@@ -475,7 +473,7 @@ The exception system in Java and C++ works quite differently. And I have to emit
 
 ### Item 72: Favor the use of standard exceptions
 
-*[?/5]* C++ has only a very limited list of [standard exceptions](https://en.cppreference.com/w/cpp/error). I honestly do not know if this applies to C++ or not. As far as I can tell, there are not standard exceptions in C++.
+*[?/5]* C++ has only a very limited list of [standard exceptions](https://en.cppreference.com/w/cpp/error). I honestly do not know if this applies to C++ or not. As far as I can tell, there are no standard exceptions in C++.
 
 ### Item 73: Throw exceptions appropriate to the abstraction
 
@@ -509,7 +507,7 @@ However, the details are different. C++ doesn’t have synchronized build into t
 
 ### Item 79: Avoid excessive synchronization
 
-*[5/5]* True. Knowing, my performance-obsessed C++ developers, data races are often the bigger problem than excessive locking.
+*[5/5]* True. Knowing my performance-obsessed C++ developers, data races are often the bigger problem than excessive locking.
 
 ### Item 80: Prefer executors, tasks, and streams to threads
 
@@ -527,7 +525,7 @@ C++ has mutex and [condition variables](https://en.cppreference.com/w/cpp/thread
 
 ### Item 83: use lazy initialization judiciously
 
-*[4/5]* Lazy initialization is a bit more important in C++ because static initialization order between translation is undefined while it is defined in Java. However, [constinit](https://en.cppreference.com/w/cpp/language/constinit) makes the situation a bit better. In C++, we don’t have to use the double-check idiom. The language does it for us.
+*[4/5]* Lazy initialization is a bit more important in C++ because static initialization order between translation units is undefined while it is defined in Java. However, [constinit](https://en.cppreference.com/w/cpp/language/constinit) makes the situation a bit better. In C++, we don't have to use the double-check idiom. The language does it for us.
 
 ### Item 84: Don’t depend on the thread scheduler
 
@@ -565,14 +563,13 @@ Yes, 0 of 6 apply. Honestly, the framework is so broken, the chapter should be c
 
 # Summary
 
-Many tips from Effective Java apply more or less directory to C++ code. There
+Many tips from Effective Java apply more or less directly to C++ code. There
 is only a single instance where a reader would be actively misled by reading
 this book about Java (about finalize and RAII).
 
 In addition, many important tips that apply are not covered by the guideline books.
 Many are only covered by the core guidelines. However, since the core guidelines
-have many hundreds of tips (see [core](https://www.merriam-webster.com/dictionary/core)), you need a lot of stamina to actually read throw it. That there is a large overhead with issues mentioned in the core guidelines prove my point that there is a lot over
-the similarity between the language.
+have many hundreds of tips (see [core](https://www.merriam-webster.com/dictionary/core)), you need a lot of stamina to actually read through it. That there is a large overlap with issues mentioned in the core guidelines proves my point that there is a lot of similarity between the languages.
 
 The short books we can hand to junior engineers and new hires, only cover a small subset
 of the items, which apply from Effective Java. I would like to hand them Effective Java

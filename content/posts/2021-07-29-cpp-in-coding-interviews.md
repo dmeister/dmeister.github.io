@@ -5,7 +5,7 @@ aliases:
   - /blog/posts/2021-07-29-cpp-in-coding-interviews/
 ---
 
-Interviews for software engineer job position often involve coding interviews testing the basic coding and classical data structure and algorithm knowledge and understanding.
+Interviews for software engineer job positions often involve coding interviews testing the basic coding and classical data structure and algorithm knowledge and understanding.
 
 [AlgoExport](https://www.algoexpert.io/) is a commercial site to train for coding interviews (including system design and behavior interviews).
 It is actually doing a good job at it.
@@ -26,11 +26,11 @@ The C++ solutions have quality problems.
 While the solutions (as far as I can tell) produce the right results, there are two patterns of problems.
 
 The usage does not reflect good usage of C++.
-For example, you will not find `std::unique_ptr` and many solutions have memory leaks.
-That is common over many interview preparation sites and might warrant its own article.
+For example, you will not find `std::unique_ptr`, and many solutions have memory leaks.
+That is common across many interview preparation sites and might warrant its own article.
 While this is annoying, I will let this slide here.
 
-What I want to focus on is that often time complexity stated is plain incorrect.
+What I want to focus on is that often the time complexity stated is plain incorrect.
 Given that coding interviews often focus so much on the [Big O notation](https://en.wikipedia.org/wiki/Big_O_notation), this is quite bad.
 A solution that is significantly slower than advertised is incorrect.
 
@@ -82,10 +82,10 @@ vector<string> Node::depthFirstSearch(vector<string> * array) {
 }
 ```
 
-The solution time-complexity is stated as `O(v + e)` as the standard DFS is.
+The solution time complexity is stated as `O(v + e)` as the standard DFS is.
 I am not sure how much sense it makes to say `O(v + e)` in a tree when, by [definition](https://en.wikipedia.org/wiki/Tree_(graph_theory)), `e == v - 1`, but anyway.
 
-Worse, the runtime is not `O(n + e)`, but `O(n * n)`.
+Worse, the runtime is not `O(v + e)`, but `O(v * v)`.
 Why?
 We call `depthFirstSearch` once for every node and add an entry to `array` (an out parameter) every single time.
 Each call, we create a copy of the current state of `array`.
@@ -100,7 +100,7 @@ The resulting code is simpler to understand and faster.
 
 The question is about binary search (as the name of the question indicates).
 Again, a classical, well-known algorithm.
-The Solution 1 contains a recursive solution with a time complexity states as `O(log n)`.
+Solution 1 contains a recursive solution with a time complexity stated as `O(log n)`.
 The solution has the same problem with accidental copying.
 
 ```cpp
@@ -146,7 +146,7 @@ One in the for loop where `for (auto const & el : array) {` would be better.
 In addition, there is an additional copy in the line of the recursive call.
 The function [`std::any_cast`](https://en.cppreference.com/w/cpp/utility/any/any_cast) here returns a copy of the contained object.
 
-This [godbolt link](https://godbolt.org/z/fas4dWv8o) contains a variant of the solution actually does have `O(n)` runtime, compared to the `O(n * n)` runtime of the original solution.
+This [godbolt link](https://godbolt.org/z/fas4dWv8o) contains a variant of the solution that actually does have `O(n)` runtime, compared to the `O(n * n)` runtime of the original solution.
 Even getting to this answer required me to explore with different alternatives for some time.
 I am very skeptical if it is fair to expect this solution (or even this question) of an engineer in a whiteboard interview.
 
@@ -163,7 +163,7 @@ The code presented in Solution 1 for example is `O(n * n * log n)` instead of `O
 - Question "Shifted Binary Search": If the solution for the question Binary Search has the problem, it is not surprising the Solution 1 to this question as a similar issue: Again `O(n * log n) != O(log n)`
 - Question "Search For Range": If the solution for the question Binary Search has the problem, it is not surprising the Solution 1 to this question as a similar issue: Again `O(n * log n) != O(log n)`
 
-The solution are correct in that they produce the right result (as far as I can tell).
+The solutions are correct in that they produce the right result (as far as I can tell).
 They are incorrect in that the comment about the time complexity is not matching the code.
 When I interviewed recently, I was often asked to state the runtime and space complexity of the code.
 These mistakes can easily mislead those who trust these solutions too much.
@@ -174,18 +174,18 @@ Just basic C++ practices.
 
 ## Examples with issues where it does not lead to a regression in asymptotic runtime
 
-Sometimes where are extra copies of data structures, but the resulting code does not lead to a regression in the asymptotic behavior.
+Sometimes there are extra copies of data structures, but the resulting code does not lead to a regression in the asymptotic behavior.
 
 Examples for that are:
 
 - Question "Generate Document": Solution 1 and 2 have problems, Solution 3 is fine.
-- Question "Move Element to End: Solution 1. The solution contains an unnecessary copy of a vector. However, the solution is already `O(n)`, so it doesn't make a difference under that metric.
+- Question "Move Element to End": Solution 1. The solution contains an unnecessary copy of a vector. However, the solution is already `O(n)`, so it doesn't make a difference under that metric.
 - Question "Merge Overlapping Intervals": Solution 1. The solution copies the vector `O(n log n)` times.
   The code would be made better by using `std::pair` and faster by having the lambda passed to `std::sort` take a `const` reference to avoid needless copy operations.
   Again, no real difference in the final result, but painful to read.
 - Question "Task Assignment". Extra copy of the input vector where a `const` reference or a std::move be the much better choices. However, it doesn't make a difference in the asymptotic runtime.
-- Question "Permutations": Sure, in an exponentiation algorithm another `O(n)` doesn't make a difference. However, interestingly the answer to the question named "Powerset", which is structurally similar, is correct.
-  While there is a structural problem with the C++ solution, some are correct. It appears again that there are multiple authors of the C++ solutions.
+- Question "Permutations": Sure, in an exponential algorithm another `O(n)` doesn't make a difference. However, interestingly the answer to the question named "Powerset", which is structurally similar, is correct.
+  While there is a structural problem with the C++ solution, some are correct. It appears that there are multiple authors of the C++ solutions.
 - Question "Sort Stack": The solution to Sort Stack again as a return value forcing a copy of the input and again the code is not using the return value. There is no reason for the extra copy of the input vector in the code.
   Changing the return value to `void` and the solution is faster and clearer. However, the solution is already `O(n * n)`, so no real harm done.
 - Question "Longest Palindromic Substring": Again extra copy operations that are not needed with more clear, standard C++ code. In this case, for example, instead of copying the input string, `std::string_view` might be a good solution.
@@ -207,7 +207,7 @@ It is `O(1)` with unnecessarily large constants.
 - Question "Same BSTs": Again the same wasteful copy operations, but no overall regression.
 - Question "Calender Matching": A lot of copy operations. A few `std::move` and the flow of ownership would have been much clearer. And the code would be faster.
 
-It is fair to ask if, esp. given that the Big O notation is correctly stated in these solutions, this isn't premature optimization.
+It is fair to ask if, especially given that the Big O notation is correctly stated in these solutions, this isn't premature optimization.
 My argument would be that we are not talking about changes that are out of the ordinary.
 We are talking about a couple of basic principles of C++ programming.
 Premature optimization might be "evil" IMHO if it makes the code less readable, less maintainable.
@@ -221,8 +221,7 @@ A good C++ program should not have these problems, even if they do not cause a r
 Chandler Carruth's [his 2014 Cppcon talk](https://youtu.be/fHNmRkzxHWs) "Efficiency with Algorithms, Performance with Data Structures" is worth viewing for more information about the topic.
 
 Most cases are caused by the missing usage of references (or `std::move` or `std::string_view`/`std::span`) leading to wasteful copying of large data structures.
-This is not a single problem for in one question, but given that it is common in many solutions.
-It is a systematic problem on the site.
+This is not a single problem in one question, but given that it is common in many solutions, it is a systematic problem on the site.
 
 It is interesting that it is not the case in all solutions.
 I think that the site has multiple authors, and some authors were aware of these kinds of issues and others weren't.

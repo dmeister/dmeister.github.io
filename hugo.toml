@@ -18,6 +18,7 @@ ShowRssButtonInSectionTermList = true
 ShowFullTextinRSS = true
 mainSections = ["posts"]
 ShowAllPagesInArchive = false
+mermaid = true
 fuseOpts.isCaseSensitive = false
 fuseOpts.shouldSort = true
 fuseOpts.location = 0

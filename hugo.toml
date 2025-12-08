@@ -1,0 +1,69 @@
+baseURL = 'https://dmeister.github.io/'
+languageCode = 'en-us'
+title = 'Dirk Meister'
+theme = 'PaperMod'
+
+[pagination]
+pagerSize = 5
+
+[params]
+description = "Dirk Meister's blog"
+author = "Dirk Meister"
+ShowReadingTime = true
+ShowShareButtons = false
+ShowPostNavLinks = true
+ShowBreadCrumbs = true
+ShowCodeCopyButtons = true
+ShowRssButtonInSectionTermList = true
+ShowFullTextinRSS = true
+mainSections = ["posts"]
+ShowAllPagesInArchive = false
+fuseOpts.isCaseSensitive = false
+fuseOpts.shouldSort = true
+fuseOpts.location = 0
+fuseOpts.distance = 1000
+fuseOpts.threshold = 0.4
+fuseOpts.minMatchCharLength = 0
+fuseOpts.keys = ["title", "permalink", "summary", "content"]
+
+[params.homeInfoParams]
+Title = "Dirk Meister"
+Content = """
+Storage Software Engineer, Storage Researcher.
+
+All opinions are my own and do not represent my employer.
+"""
+
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/dmeister"
+
+[[params.socialIcons]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/meisterdirk/"
+
+[[params.socialIcons]]
+name = "twitter"
+url = "https://twitter.com/dirkmeister"
+
+[menu]
+[[menu.main]]
+name = "About"
+url = "/about/"
+weight = 10
+
+[[menu.main]]
+name = "Archive"
+url = "/archives/"
+weight = 20
+
+[[menu.main]]
+name = "Search"
+url = "/search/"
+weight = 30
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
+[markup.goldmark.renderer]
+unsafe = true

@@ -1,4 +1,9 @@
+# Hugo
+/public/
+/resources/_gen/
+/.hugo_build.lock
 
+# IDE
 .vscode/settings.json
 .metals/metals.h2.db
 .metals/metals.log

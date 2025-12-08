@@ -1,6 +1,8 @@
 ---
-layout: post
-title:  A follow up to the pformat talk for Pure Storage Prague
+title: A follow up to the pformat talk for Pure Storage Prague
+date: 2020-05-23
+aliases:
+  - /blog/posts/2020-05-23-pformat-talk/
 ---
 
 Last year, I got interested in the topic of compile-time programming in C++ and in December I published the format library at [github.com/dmeister/pformat](https://github.com/dmeister/pformat). It is clear to me that the library is not and likely never will be production-ready. It was an experiment if compile-time string format checking is possible. In fact, it is possible and has been done many times before. I just didn’t knew that. Similar things have been done by [fmt](https://www.zverovich.net/2017/11/05/compile-time-format-strings.html) or [pmark/format](https://github.com/mpark/format).

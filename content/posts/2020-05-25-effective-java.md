@@ -1,6 +1,8 @@
 ---
-layout: post
-title:  Effective Java is the missing book for C++
+title: Effective Java is the missing book for C++
+date: 2020-05-25
+aliases:
+  - /blog/posts/2020-05-25-effective-java/
 ---
 
 One of my favorite books is ["Effective Java" by Joshua Bloch](https://www.oreilly.com/library/view/effective-java-3rd/9780134686097/).

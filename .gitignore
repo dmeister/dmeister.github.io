@@ -4,6 +4,7 @@
 /.hugo_build.lock
 
 # IDE
+.playwright-mcp
 .vscode/settings.json
 .metals/metals.h2.db
 .metals/metals.log

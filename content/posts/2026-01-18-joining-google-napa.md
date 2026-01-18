@@ -3,11 +3,9 @@ title: "Joining Google: From 2008 Rejection to the Napa Team"
 date: 2026-01-18
 ---
 
-This Monday, I started at Google as a Software Engineer on the Napa team.
+On January 5, I started at Google as a Software Engineer on the Napa team.
 
-It's a surreal moment. Eighteen years ago, in 2008, I first applied to Google. I was rejected. Looking back, that rejection was correct—I wasn't ready. The gap between where I was and what Google needed was significant. I knew it then, even if I didn't want to admit it.
-
-The journey from that 2008 rejection to this Monday has been long: a PhD in storage systems at the University of Mainz, building LSM-tree-based append-optimized tables at Greenplum, seven and a half years at Pure Storage working on replication, file systems, and engineering productivity, a year at Databricks building CI infrastructure, and nearly three years as a founding engineer at Augment Code working on AI-powered code completion.
+The journey here has been long: a PhD in storage systems at the University of Mainz, building LSM-tree-based append-optimized tables at Greenplum, seven and a half years at Pure Storage working on replication, file systems, and engineering productivity, a year at Databricks building CI infrastructure, and nearly three years as a founding engineer at Augment Code working on AI-powered code completion.
 
 Each role built on the previous one. Each taught me something I didn't know I needed. And now, finally, I'm here.
 
@@ -31,11 +29,19 @@ These are exactly the kinds of problems I want to work on.
 
 Beyond the technical challenges, I'm excited to work with the team. The people who built Napa are world-class distributed systems engineers. The codebase has been battle-tested at a scale few systems ever reach. The operational discipline required to keep this system running reliably for Google's critical workloads is immense.
 
-I'm also excited to be back working on data infrastructure. My time at Augment Code was transformative—I learned about LLMs, built production AI systems, optimized CUDA kernels, and worked on problems at the frontier of AI for code. But storage systems and databases are where I started. They're problems I keep coming back to. There's something deeply satisfying about building systems that reliably store and retrieve data at scale.
+I'm excited to return to database and storage systems while still utilizing my experience with AI infrastructure. My time at Augment Code was transformative—I learned about LLMs, built production AI systems, optimized CUDA kernels, and worked on problems at the frontier of AI for code. But storage systems and databases are where I started. They're problems I keep coming back to. There's something deeply satisfying about building systems that reliably store and retrieve data at scale.
 
-## The Journey Matters
+Interestingly, the Napa architecture shares some similarities with the Pure FlashArray architecture. Both are built around distributed, log-structured storage with sophisticated metadata management. This familiarity is reassuring—I'm not starting from scratch.
 
-That 2008 rejection stung at the time. But it was the right decision. I needed those years of experience. I needed to ship production systems, debug distributed race conditions, learn from failures, understand how code compounds over years and decades.
+Last week, I started working on flaky tests. This is like systems software engineer's comfort food. I've done that hundreds of times at Pure Storage. There's something satisfying about tracking down race conditions, understanding timing dependencies, and making tests reliable. It's a perfect way to start getting familiar with the codebase.
+
+## The Journey to Google
+
+Over the years, I've done five full rounds of interviews with Google and passed three. This time, everything lined up.
+
+The first time was in 2008. I was rejected. Looking back, that rejection was correct—I wasn't ready. The gap between where I was and what Google needed was significant. I knew it then, even if I didn't want to admit it.
+
+That rejection stung at the time. But it was the right decision. I needed those years of experience. I needed to ship production systems, debug distributed race conditions, learn from failures, understand how code compounds over years and decades.
 
 The PhD taught me how to think deeply about problems and communicate technical ideas clearly. Greenplum taught me about distributed databases and the reality of legacy codebases. Pure Storage taught me about high-performance systems, engineering discipline, and technical leadership. Databricks taught me about building tooling for rapidly growing engineering organizations. Augment Code taught me how to work at the frontier, how to build customer-facing systems in an entirely new domain, and how to learn quickly when the field is evolving daily.
 
@@ -44,10 +50,6 @@ Each experience was necessary. Not just for getting hired—for being effective 
 When I look at the Napa codebase now, I can recognize patterns from Greenplum's LSM-tree design, understand the operational challenges from Pure Storage's production systems, appreciate the testing and tooling from my engineering productivity work, and see parallels to the scalability challenges we faced at Augment.
 
 The rejection in 2008 wasn't the end. It was the beginning of a journey that brought me here with the right background and experience.
-
-## What Comes Next
-
-I don't know exactly what I'll be working on yet. The onboarding process is just beginning. But I know it will involve large-scale distributed systems, data warehousing, and some of the most challenging technical problems in the industry.
 
 I'm ready. Not because I'm the same person who applied in 2008, but because I'm not.
 

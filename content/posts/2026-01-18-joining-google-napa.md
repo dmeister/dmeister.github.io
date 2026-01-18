@@ -35,6 +35,8 @@ Interestingly, the Napa architecture shares some similarities with the Pure Flas
 
 Last week, I started working on flaky tests. This is like systems software engineer's comfort food. I've done that hundreds of times at Pure Storage. There's something satisfying about tracking down race conditions, understanding timing dependencies, and making tests reliable. It's a perfect way to start getting familiar with the codebase.
 
+This is also the first time I'm not joining a startup. Whether Databricks in 2021 was still a startup can be debated, but Google is definitely not one. It's a huge shift for me. New challenges—navigating a massive organization, understanding established systems, working at unprecedented scale. But it's exciting. Different doesn't mean worse, just different.
+
 ## The Journey to Google
 
 Over the years, I've done five full rounds of interviews with Google and passed three. This time, everything lined up.

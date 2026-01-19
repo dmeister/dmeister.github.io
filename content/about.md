@@ -6,11 +6,12 @@ aliases:
 showToc: false
 ---
 
-- Storage Software Engineer, Storage Researcher.
-- Tech lead "Engineering Productivity" at Pure Storage
+Software Engineer at Google working on databases and storage systems.
+
+Previously: Founding engineer at [Augment Code](https://www.augmentcode.com/), Engineering Productivity at Databricks, Tech Lead at Pure Storage, Storage Researcher.
 
 All opinions are my own and do not represent my employer.
 
-Have questions or suggestions? Feel free to [ask me on Twitter](https://twitter.com/dirkmeister).
+Have questions or suggestions? Feel free to [reach out on Linkedin](https://www.linkedin.com/in/meisterdirk/).
 
 Thanks for reading!

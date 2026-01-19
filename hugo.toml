@@ -2,6 +2,7 @@ baseURL = 'https://dmeister.github.io/'
 languageCode = 'en-us'
 title = 'Dirk Meister'
 theme = 'PaperMod'
+googleAnalytics = 'G-0L2F76DC2Q'
 
 [pagination]
 pagerSize = 5

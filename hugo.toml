@@ -9,7 +9,7 @@ pagerSize = 5
 [params]
 description = "Dirk Meister's blog"
 author = "Dirk Meister"
-ShowReadingTime = true
+ShowReadingTime = false
 ShowShareButtons = false
 ShowPostNavLinks = true
 ShowBreadCrumbs = true

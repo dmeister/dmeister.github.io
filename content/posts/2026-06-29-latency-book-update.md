@@ -1,9 +1,9 @@
 ---
-title: "Book Update: Latency, and Why Low-Level Knowledge Is Back"
+title: "Books Update: Latency, the Missing README, and Crafting Interpreters"
 date: 2026-06-29
 ---
 
-Back in 2020, I wrote a [list of books for new college grads](https://dmeister.github.io/blog/2020/09/07/books/) starting a career as a software engineer. That list still mostly holds up, but it is time for an update, anchored by one standout: ["Latency: Reduce Delay in Software Systems"](https://www.manning.com/books/latency) by Pekka Enberg, published by Manning in late 2025.
+Back in 2020, I wrote a [list of books for new college grads](https://dmeister.github.io/blog/2020/09/07/books/) starting a career as a software engineer. That list still mostly holds up, but it is time for an update with three additions: ["Latency: Reduce Delay in Software Systems"](https://www.manning.com/books/latency) by Pekka Enberg (Manning, late 2025), which is timely; ["The Missing README"](https://nostarch.com/missing-readme) by Chris Riccomini and Dmitriy Ryaboy (No Starch Press), which is overdue; and ["Crafting Interpreters"](https://craftinginterpreters.com/) by Robert Nystrom, which is just for fun.
 
 ## Why an Update Now
 
@@ -21,10 +21,28 @@ This is exactly the gap I felt in 2020. "Effective Modern C++" goes deep on lang
 
 ## Why It Resonates With My Experience
 
-At Pure Storage, we spent years on a flash storage system where latency was the product, not a side effect. Queueing behavior under load, the cost of synchronization on the hot path, the gap between single-node and distributed tail latency, all of that was daily work, learned the hard way through production incidents and benchmarks. At Napa, distributed systems latency shows up again, just at a different scale and with different consistency tradeoffs.
+At Pure Storage, we spent years on a flash storage system where latency was the product, not a side effect. Queueing behavior under load, the cost of synchronization on the hot path, the gap between single-node and distributed tail latency, all of that was daily work, learned the hard way through production incidents and benchmarks.
+
+At Augment Code, we built our backend in Rust, and vector search was one of the most latency-sensitive parts of it: every completion and chat request depended on it, on the critical path, at low latency. Last quarter I got to spend real time on latency improvements there, and while not everything about that work was rosy, that part of it was genuinely fun. Exactly the kind of work this book gives you a vocabulary for.
+
+At Napa, distributed systems latency shows up again, just at a different scale and with different consistency tradeoffs.
 
 A book that ties these threads together into a single mental model would have saved me a lot of scattered learning, picked up the hard way across storage systems and distributed databases instead of from one coherent source.
 
+## The One Actually Written for New Grads
+
+Looking back at the 2020 list with fresh eyes, none of those books are really new-grad specific. "Effective Modern C++", "Code Complete", the GoF book, they are good engineering books that any engineer at any level could pick up. They are not about the actual transition from student to employee.
+
+["The Missing README"](https://nostarch.com/missing-readme) by Chris Riccomini and Dmitriy Ryaboy is. It covers the things nobody teaches in school and nobody quite remembers to explain on the job: how to work in an existing codebase instead of a green field, how technical debt actually accumulates and gets paid down, what a good code review looks like from both sides, how to safely ship and roll back, and what to do when you are on call and something is on fire. If I had to hand a new college grad exactly one book on day one, this is closer to the right one than anything on my 2020 list.
+
+## The Fun One: Crafting Interpreters
+
+["Crafting Interpreters"](https://craftinginterpreters.com/) by Robert Nystrom is the odd one out here: less practical, more fun. It is the most enjoyable CS book I have read in a decade.
+
+The book builds two real, complete interpreters for a small language called Lox: a tree-walking interpreter in Java, then a bytecode virtual machine in C. No hand-waving, no "left as an exercise", every line of both implementations is in the book and explained. Nystrom writes with a wit that is rare in technical books without ever being sloppy about the actual computer science: the explanations of parsing, scoping, closures, and garbage collection are correct and precise, just delivered with a sense of humor. It manages to be a serious compilers book and an engaging read at the same time, which is a hard combination to pull off.
+
+And it is not purely recreational. Knowing how to write a small recursive descent parser by hand is a genuinely useful skill that shows up more often than people expect, in config languages, query languages, internal DSLs, and the occasional debugging session staring at someone else's grammar.
+
 ## The Rest of the Updated List
 
-The 2020 list does not need a rewrite. "Effective Modern C++", "Effective Java", "Code Complete 2", and the others are still solid foundations for writing correct, maintainable code. What changed is the layer above that: once you can write good code, "Latency" is the book I would now hand to an engineer who needs to make that code fast, and keep it fast as it moves from a single machine to a distributed system. In a hardware-constrained era, that is no longer a specialist skill. It is core engineering.
+The 2020 list does not need a rewrite. "Effective Modern C++", "Effective Java", "Code Complete 2", and the others are still solid foundations for writing correct, maintainable code. What changed is the layer above and around that: "Latency" is the book I would now hand to an engineer who needs to make that code fast and keep it fast as it moves from a single machine to a distributed system, "The Missing README" is the one for the first weeks on the job, and "Crafting Interpreters" is the one to read for fun on a weekend, with a useful skill as a side effect. In a hardware-constrained era, the latency knowledge especially is no longer a specialist skill. It is core engineering.
